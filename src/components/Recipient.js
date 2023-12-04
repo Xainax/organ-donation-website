@@ -23,6 +23,32 @@ const Recipient = () => {
     setSearchTerm(e.target.value);
   };
 
+  const handleDelete = (recipientID) => {
+    // Confirm with the user before proceeding with deletion
+    const confirmDeletion = window.confirm('Are you sure you want to delete this recipient?');
+  
+    if (!confirmDeletion) {
+      return; // Do nothing if the user cancels the deletion
+    }
+  
+    fetch(`http://localhost:3002/delete-recipient/${recipientID}`, {
+      method: 'DELETE',
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.affectedRows > 0) {
+          // Update local state by filtering out the deleted recipient
+          setRecipients((prevRecipients) =>
+            prevRecipients.filter((recipient) => recipient.RecipientID !== recipientID)
+          );
+          console.log('Recipient deleted successfully.');
+        } else {
+          console.error('Recipient not found or deletion unsuccessful.');
+        }
+      })
+      .catch((error) => console.error('Error deleting recipient: ', error));
+  };
+
   const filteredAndSortedRecipients = [...availableRecipients]
   .filter((availableRecipient) =>
     availableRecipient.OrgansNeeded.toLowerCase().includes(searchTerm.toLowerCase())
@@ -66,6 +92,9 @@ const Recipient = () => {
                 <td>{availableRecipient.BloodType}</td>
                 <td>{availableRecipient.Gender}</td>
                 <td>{availableRecipient.Hospital}</td>
+                <td>
+                  <button onClick={() => handleDelete(availableRecipient.RecipientID)}>Delete</button>
+                </td>
               </tr>
             ))}
           </tbody>

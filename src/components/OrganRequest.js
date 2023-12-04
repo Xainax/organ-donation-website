@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import {sortIcon} from './icons/25756.png';
 
 const OrganRequest= () => {
   const [requests, setRequest] = useState([]);

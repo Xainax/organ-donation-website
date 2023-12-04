@@ -120,3 +120,9 @@ table {
     padding: 10px 15px;
     font-size: 18px;
 }
+
+.create {
+    text-align: center;
+    bottom: 0;
+    margin-bottom: 0px
+}

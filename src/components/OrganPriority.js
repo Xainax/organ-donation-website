@@ -5,6 +5,8 @@ const OrganPriority = () => {
   const [sortBy, setSortBy] = useState('Priority');
   const [sortOrder, setSortOrder] = useState('asc');
   const [searchTerm, setSearchTerm] = useState('');
+  const [newOrganType, setNewOrganType] = useState('');
+  const [newPriority, setNewPriority] = useState('');
 
   useEffect(() => {
     // Fetch available organs from the server when the component mounts
@@ -21,6 +23,27 @@ const OrganPriority = () => {
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
+  };
+
+  const handleCreate = () => {
+    fetch('http://localhost:3002/create-priority', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({OrganType: newOrganType, Priority: newPriority}),
+    })
+    .then((response) => response.json())
+    .then((result) => {
+        console.log(result);
+        fetch('http://localhost:3002/priority')
+        .then((response) => response.json())
+        .then((updatedPriority) => setPriority(updatedPriority))
+        .catch((error) => console.error('Error fetching organ priority: ', error));
+    })
+    .catch((error) => console.error('Error creating a new row:', error));
+    setNewOrganType('');
+    setNewPriority('');
   };
 
   const filteredAndSortedRequests = [...organPriority]
@@ -61,6 +84,22 @@ const OrganPriority = () => {
             ))}
           </tbody>
         </table>
+        <div>
+          <h2>Create New Priority</h2>
+          <div className="create">
+            <label>
+              Organ Type: <input type="text" value={newOrganType} onChange={(e) => setNewOrganType(e.target.value)}/>
+            </label>
+          </div>
+          <div className="create">
+            <label>
+              Priority: <input type="text" value={newPriority} onChange={(e) => setNewPriority(e.target.value)}/>
+            </label>
+          </div>
+          <div className="create">
+            <button onClick={handleCreate}>Create</button>
+          </div>
+          </div>
       </main>
     </div>
   );
