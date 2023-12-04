@@ -33,7 +33,7 @@ app.get('/available', (req, res) => {
     });
   });
 
-// route for organ requests
+  // route for organ requests
   app.get('/requests', (req, res) => {
     const query = 'SELECT * from requests';
     db.query(query, (error, results) => {
@@ -44,6 +44,43 @@ app.get('/available', (req, res) => {
       }
     });
   });
+
+// route for donors
+app.get('/donors', (req, res) => {
+  const query = 'SELECT * from donor';
+  db.query(query, (error, results) => {
+    if (error) {
+      res.status(500).send(error.message);
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+// route for recipients
+app.get('/recipients', (req, res) => {
+  const query = 'SELECT * from recipient';
+  db.query(query, (error, results) => {
+    if (error) {
+      res.status(500).send(error.message);
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+// route for priority
+app.get('/priority', (req, res) => {
+  const query = 'SELECT * from priority';
+  db.query(query, (error, results) => {
+    if (error) {
+      res.status(500).send(error.message);
+    } else {
+      res.json(results);
+    }
+  });
+});
+
   
   app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);

@@ -7,6 +7,9 @@ import UserSignup from './components/UserSignup';
 import OrganAvailability from './components/OrganAvailability';
 import CreateAccount from './components/CreateAccount';
 import OrganRequest from './components/OrganRequest';
+import Donor from './components/Donor';
+import Recipient from './components/Recipient'
+import OrganPriority from './components/OrganPriority'
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
         <Route path="/availability" component={OrganAvailability}/>
         <Route path="/signup" component={CreateAccount}/>
         <Route path="/request" component={OrganRequest}/>
+        <Route path="/donors" component={Donor}/>
+        <Route path="/recipients" component={Recipient}/>
+        <Route path="/priority" component={OrganPriority}/>
       </Switch>
     </Router>
   );

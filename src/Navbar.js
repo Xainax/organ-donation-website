@@ -17,6 +17,15 @@ const Navbar = () => {
           <li>
             <Link to="/request">Organ Request</Link>
           </li>
+          <li>
+            <Link to="/donors">Donor List</Link>
+          </li>
+          <li>
+            <Link to="/recipients">Recipient List</Link>
+          </li>
+          <li>
+            <Link to="/priority">Organ Priority</Link>
+          </li>
         </ul>
       </nav>
     );

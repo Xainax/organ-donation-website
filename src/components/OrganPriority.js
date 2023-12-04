@@ -1,17 +1,17 @@
 import React, {useState, useEffect} from 'react';
 
-const OrganAvailability = () => {
-  const [availableOrgans, setAvailableOrgans] = useState([]);
+const OrganPriority = () => {
+  const [organPriority, setPriority] = useState([]);
   const [sortBy, setSortBy] = useState('Priority');
   const [sortOrder, setSortOrder] = useState('asc');
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     // Fetch available organs from the server when the component mounts
-    fetch('http://localhost:3002/available')
+    fetch('http://localhost:3002/priority')
       .then((response) => response.json())
-      .then((availableOrgans) => setAvailableOrgans(availableOrgans))
-      .catch((error) => console.error('Error fetching available organs:', error));
+      .then((organPriority) => setPriority(organPriority))
+      .catch((error) => console.error('Error fetching organ priority:', error));
   }, []);
 
   const handleSort = (column) => {
@@ -23,9 +23,9 @@ const OrganAvailability = () => {
     setSearchTerm(e.target.value);
   };
 
-  const filteredAndSortedRequests = [...availableOrgans]
-  .filter((organ) =>
-    organ.OrganType.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredAndSortedRequests = [...organPriority]
+  .filter((priorities) =>
+    priorities.OrganType.toLowerCase().includes(searchTerm.toLowerCase())
   )
   .sort((a, b) => {
     const order = sortOrder === 'asc' ? 1 : -1;
@@ -38,29 +38,25 @@ const OrganAvailability = () => {
   return (
     <div>
       <header>
-        <h1>Organ Availability</h1>
+        <h1>Organ Priority</h1>
       </header>
       <main>
         <div class = "search-organ">
           <input type="text" placeholder="Search for an organ..." value={searchTerm} onChange={handleSearch}/>
         </div>
-        <h2>Donor Information: </h2>
+        <h2>Priority List: </h2>
         <table className="table table-bordered">
           <thead className="thead-dark">
             <tr>
-              <th onClick={() => handleSort('DonorID')}>Donor ID</th>
               <th onClick={() => handleSort('OrganType')}>Organ Type</th>
-              <th onClick={() => handleSort('BloodType')}>Blood Type</th>
-              <th onClick={() => handleSort('ViableHours')}>Viable Hours</th>
+              <th onClick={() => handleSort('Priority')}>Priority</th>
             </tr>
           </thead>
           <tbody>
-            {filteredAndSortedRequests.map((organ) => (
-              <tr key={organ.DonorID}>
-                <td>{organ.DonorID}</td>
-                <td>{organ.OrganType}</td>
-                <td>{organ.BloodType}</td>
-                <td>{organ.ViableHours}</td>
+            {filteredAndSortedRequests.map((priorities) => (
+              <tr key={priorities.OrganType}>
+                <td>{priorities.OrganType}</td>
+                <td>{priorities.Priority}</td>
               </tr>
             ))}
           </tbody>
@@ -70,4 +66,4 @@ const OrganAvailability = () => {
   );
 }
 
-export default OrganAvailability;
+export default OrganPriority;

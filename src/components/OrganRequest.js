@@ -60,7 +60,6 @@ const OrganRequest= () => {
               <th onClick={() => handleSort('RecipientID')}>Recipient ID {renderSortIcon('RecipientID')}</th>
               <th onClick={() => handleSort('OrganType')}>Organ Type {renderSortIcon('OrganType')}</th>
               <th onClick={() => handleSort('BloodType')}>Blood Type {renderSortIcon('BloodType')}</th>
-              <th onClick={() => handleSort('Priority')}>Priority {renderSortIcon('Priority')}</th>
             </tr>
           </thead>
           <tbody>
@@ -70,7 +69,6 @@ const OrganRequest= () => {
                 <td>{request.RecipientID}</td>
                 <td>{request.OrganType}</td>
                 <td>{request.BloodType}</td>
-                <td>{request.Priority}</td>
               </tr>
             ))}
           </tbody>
