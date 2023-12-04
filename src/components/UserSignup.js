@@ -13,7 +13,7 @@ const UserSignup = () => {
             <input type="password" placeholder="Enter Password"/>
             
           <button className='btn btn-success'>Log In</button>
-          <Link to="/create-account">
+          <Link to="/signup">
             <button className='btn btn-default border'>Create Account</button>
           </Link>
         </form>
