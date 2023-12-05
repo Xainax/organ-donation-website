@@ -2,7 +2,7 @@ import React from 'react';
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="page-background">
       <header>
         <h1>Organ Donation Website</h1>
       </header>

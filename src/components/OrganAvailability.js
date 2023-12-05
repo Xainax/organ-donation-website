@@ -44,7 +44,7 @@ const OrganAvailability = () => {
         <div class = "search-organ">
           <input type="text" placeholder="Search for an organ..." value={searchTerm} onChange={handleSearch}/>
         </div>
-        <h2>Donor Information: </h2>
+        <h2>Available Organs: </h2>
         <table className="table table-bordered">
           <thead className="thead-dark">
             <tr>
