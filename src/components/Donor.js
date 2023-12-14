@@ -25,6 +25,7 @@ const Donor = () => {
         if (availableDonors.length > 0) {
           const firstDonor = availableDonors[0];
           setEditedDonor({
+            DonorID: firstDonor.DonorID,
             Fname: firstDonor.Fname,
             Lname: firstDonor.Lname,
             Age: parseInt(firstDonor.Age, 10),
@@ -35,6 +36,7 @@ const Donor = () => {
           });
         } else {
           setEditedDonor({
+            DonorID: '',
             Fname: '',
             Lname: '',
             Age: '',
@@ -64,6 +66,7 @@ const Donor = () => {
 
     if (donorToEdit) {
         setEditedDonor({
+          DonorID: donorToEdit.DonorID,
           Fname: donorToEdit.Fname,
           Lname: donorToEdit.Lname,
           Age: parseInt(donorToEdit.Age, 10),

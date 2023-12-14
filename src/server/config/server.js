@@ -103,10 +103,11 @@ app.post('/create-priority', (req, res) => {
 // route to update data in priority
 app.put('/update-donor', (req, res) => {
   const donorID = req.body.DonorID;
-  const query = 'UPDATE donor SET Fname = ?, Lname = ?, OrgansDonating = ?, BloodType = ?, Gender = ?, Hospital = ? where DonorID = ?';
+  const query = 'UPDATE donor SET Fname = ?, Lname = ?, Age = ?, OrgansDonating = ?, BloodType = ?, Gender = ?, Hospital = ? where DonorID = ?';
   const values = [
     req.body.Fname,
     req.body.Lname,
+    req.body.Age,
     req.body.OrgansDonating,
     req.body.BloodType,
     req.body.Gender,
