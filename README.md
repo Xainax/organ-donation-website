@@ -1,10 +1,39 @@
-# Getting Started with Create React App
+![image](https://github.com/Xainax/organ-donation-website/assets/46289589/b3504ce2-3b74-4af5-a306-943598701afb)# Organ Donation Website
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Installation guide
 
-In the project directory, you can run:
+To run the website from your local computer, you will need to download the code, react, and some other important applications. First, download the code and using the terminal, navigate to the folder where the code is located. After navigating to the folder, you will need to run the following commands:
+1. npm install
+2. npm install react-scripts
+3. npm install react-router-dom@5.2.0
+(If you run into any issues, contact Eric at eric02pham@gmail.com to help troubleshoot. We are currently using npm version 10.2.4.)
+
+After installing the necessary dependencies for React, you will need to download the necessary applications for the database/server. You will need to download Node.js and XAMPP using the following links:
+https://nodejs.org/en/download
+https://www.apachefriends.org/download.html
+
+After downloading XAMPP version 8.2.4, you will need to open the manager and start the Apache Web Browser and MySQL database servers. If you are currently using or have an active MySQL database server, you will need to turn it off and turn it on through XAMPP. 
+![image](https://github.com/Xainax/organ-donation-website/assets/46289589/fe0b0a75-126a-4c90-a989-33eee66c609d)
+
+Once you start the Apache Web Browser, you will be navigated to the XAMPP homepage, and you will need to go to the phpMyAdmin tab. After accessing the phpMyAdmin portal. 
+![image](https://github.com/Xainax/organ-donation-website/assets/46289589/379f1bd3-d13b-4ef0-a23b-31b61065751f)
+To set up the database, you will need to go to the databases tab and create the database organDonation.
+![image](https://github.com/Xainax/organ-donation-website/assets/46289589/f49ba13c-370f-43d8-8931-48a8b45a751d)
+After creating the database, you will go to the import tab and import the organDonation.sql file that is also attached in the repository. 
+![image](https://github.com/Xainax/organ-donation-website/assets/46289589/22aaac83-25b8-4883-94ce-f2487b8a69a8)
+
+
+
+If you are accessing the code through Visual Studio Code, navigate to src->server->config->server.js and right-click on the file. Click on the option that says 'Open in Integrated Terminal' and you will need to install some more dependencies using the following commands:
+1. npm install mysql
+2. npm install express
+3. npm install cors
+4. npm install body-parser
+
+After installing them, you should use the command 'node server.js' to start the server and it will connect to XAMPP, meaning your data should now be on the website.
+![image](https://github.com/Xainax/organ-donation-website/assets/46289589/a659e2b1-0c84-4cd9-bbdd-0337be3d3155)
 
 ### `npm start`
 
@@ -14,57 +43,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
