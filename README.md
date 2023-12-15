@@ -1,4 +1,4 @@
-![image](https://github.com/Xainax/organ-donation-website/assets/46289589/b3504ce2-3b74-4af5-a306-943598701afb)# Organ Donation Website
+# Organ Donation Website
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
